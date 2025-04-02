@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Nimitt Ajmera">
+    <meta name="author" content="Nimitt Ajmera">
+
+    <link rel="shortcut icon" href="img/dev-favicon.png">
+    <title>Nimitt Ajmera</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script src="https://kit.fontawesome.com/58168da02a.js" crossorigin="anonymous"></script>
+
+    <style>
+        .data {
+            color: white;
+            font-weight: 700;
+            text-align: centre;
+            letter-spacing: .5rem;
+            font-size: 45px;
+        }
+
+        .data2 {
+            color: white;
+            font-weight: 200;
+            text-align: centre;
+            letter-spacing: .5rem;
+            font-size: 45px;
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* overflow: hidden; */
+            background-color: #050505;
+            color: white;
+            height: 100vh;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 10;
+            text-align: left;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #acacac);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: linear-gradient(90deg, #ff3a82, #5233ff);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(255, 58, 130, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <nav class="navbar bg-transparent fixed-top ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="border: none;">
+                <lord-icon src="https://cdn.lordicon.com/ailnzwyn.json" trigger="loop" delay="55"
+                    colors="primary:#ffffff,secondary:#ffffff" style="width:55px;height:55px">
+                </lord-icon>
+                <!-- <span class="navbar-toggler-icon"></span> -->
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home"><i class="bi bi-house-heart menu-nav-icons"></i>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about-experience"><i
+                                    class="bi bi-file-earmark-person menu-nav-icons"></i>About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about-experience"><i
+                                    class="bi bi-calendar2-range menu-nav-icons"></i>Career
+                                Journey</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#proficiencies"><i
+                                    class="bi bi-cpu menu-nav-icons"></i>Proficiencies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#certificates"><i
+                                    class="bi bi-patch-check menu-nav-icons"></i>Certifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portfolio"><i
+                                    class="bi bi-list-columns menu-nav-icons"></i>Portfolio</a>
+                        </li>
+                    </ul>
+                    <button class="btn download-cv-button-main" style="padding: 0%; margin: 15px 0 10px 0;">
+                        <div class="typeform-div download-cv-button">
+                            <a href="https://drive.google.com/drive/folders/1pwb_bzt7or_DuDFiCURGG8dzTjBDvPFp?usp=sharing"
+                                target="_blank"
+                                style="color: white; text-decoration: none; font-family: 'Lexend', sans-serif;">
+                                Download My CV
+                            </a>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home">
+        <div class="gradient-background">
+            <div class="gradient-sphere sphere-1"></div>
+            <div class="gradient-sphere sphere-2"></div>
+            <div class="gradient-sphere sphere-3"></div>
+            <div class="glow"></div>
+            <div class="grid-overlay"></div>
+            <div class="noise-overlay"></div>
+            <div class="particles-container" id="particles-container"></div>
+        </div>
+        <div class="content-container">
+            <span class="d-lg-block d-sm-block">
+                <lord-icon src="https://cdn.lordicon.com/srupsmbe.json" trigger="in" delay="1500" state="in-reveal"
+                    colors="primary:#ffffff,secondary:#ffffff" class="lord-icon-main-developer">
+                </lord-icon>
+            </span>
+            <div class="data main-name">NIMITT AJMERA</div>
+            <div class="data developer-text" style="font-family: math;">
+                < Developer />
+            </div><br>
+            <span class="badge text-bg-light" style="font-family: 'Lexend', sans-serif;">6+ Years Experience</span>
+            <span class="badge text-bg-light" style="font-family: 'Lexend', sans-serif;">AWS Cloud Essentials
+                Certified</span>
+            <span class="badge text-bg-light" style="font-family: 'Lexend', sans-serif;">Full Stack Developer</span>
+            <span class="badge text-bg-light" style="font-family: 'Lexend', sans-serif;">Workato Automation
+                Professional</span>
+            <br>
+            <button class="btn" style="padding: 0%; margin: 15px 0 10px 0;">
+                <div data-tf-live="01JQ8A1KFNVWMSW1AGX1BCJT70" class="typeform-div"></div>
+                <script src="https://embed.typeform.com/next/embed.js"></script>
+            </button>
+            <ul class="list-inline list-social-icons mb-0">
+                <li class="list-inline-item">
+                    <lord-icon src="https://cdn.lordicon.com/cxauoejw.json" trigger="hover"
+                        colors="primary:#ffffff,secondary:#ffffff" class="lord-icon-social">
+                    </lord-icon>
+                </li>
+                <li class="list-inline-item">
+                    <lord-icon src="https://cdn.lordicon.com/ckyopmtp.json" trigger="hover"
+                        colors="primary:#ffffff,secondary:#ffffff" class="lord-icon-social">
+                    </lord-icon>
+                </li>
+                <li class="list-inline-item">
+                    <lord-icon src="https://cdn.lordicon.com/jvodbtcr.json" trigger="hover"
+                        colors="primary:#ffffff,secondary:#ffffff" class="lord-icon-social">
+                    </lord-icon>
+                </li>
+                <li class="list-inline-item">
+                    <lord-icon src="https://cdn.lordicon.com/jjxzcivr.json" trigger="hover"
+                        colors="primary:#ffffff,secondary:#ffffff" class="lord-icon-social">
+                    </lord-icon>
+                </li>
+                <li class="list-inline-item">
+                    <lord-icon src="https://cdn.lordicon.com/dsdlqjde.json" trigger="hover"
+                        colors="primary:#ffffff,secondary:#ffffff" class="lord-icon-social">
+                    </lord-icon>
+                </li>
+                <li class="list-inline-item">
+                    <lord-icon src="https://cdn.lordicon.com/uewqxptr.json" trigger="hover"
+                        colors="primary:#ffffff,secondary:#ffffff" class="lord-icon-social">
+                    </lord-icon>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-container experience-container" id="about-experience">
+        <main class="CV-page">
+            <div class="CV-grid">
+                <div class="CV-grid-column">
+                    <div class="CV-jobs">
+                        <h2 class="CV-secondaryHeading CV-jobs-heading">About Me</h2>
+                        <p style="text-align: justify; color: black;">As an Agile Development Supervisor at TaskUs, I
+                            lead teams in delivering high-quality
+                            software components for complex systems. My role involves ensuring adherence to coding
+                            standards and maintaining software quality. I am an alumnus of Sri Aurobindo Institute of
+                            Technology and have previously contributed to organizations such as TaskUs. Based in Indore,
+                            I am committed to fostering agile methodologies and continuous improvement in software
+                            development processes.</p>
+                        <h2 class="CV-secondaryHeading CV-jobs-heading">Career Journey</h2>
+                        <section class="CV-timeline CV-job">
+                            <h3 class="CV-timeline-heading">
+                                <small class="CV-timeline-heading-duration">Jun 2022 -
+                                    Present</small>
+                                <span class="CV-timeline-heading-title">TaskUs</span>
+                            </h3>
+                            <p class="experience-position">
+                                <i class="bi bi-arrow-right-short"></i>
+                                Agile Development Supervisor <span>(Mar 2024 - Present)</span><br>
+                                <i class="bi bi-arrow-right-short"></i>
+                                Agile Developer <span>(Jun 2022 - Mar 2024)</span>
+                            </p>
+                        </section>
+                        <section class="CV-timeline CV-job">
+                            <h3 class="CV-timeline-heading">
+                                <small class="CV-timeline-heading-duration">Jan 2020 -
+                                    May 2022</small>
+                                <span class="CV-timeline-heading-title">Mango IT Solutions</span>
+                            </h3>
+                            <p class="experience-position">
+                                <i class="bi bi-arrow-right-short"></i>
+                                Software Developer <span>(Oct 2021 - May 2022)</span><br>
+                                <i class="bi bi-arrow-right-short"></i>
+                                Junior Software Developer <span>(Jan 2020 - Sep 2021)</span>
+                            </p>
+                        </section>
+                        <section class="CV-timeline CV-job">
+                            <h3 class="CV-timeline-heading">
+                                <small class="CV-timeline-heading-duration">Jan 2018 -
+                                    Dec 2019</small>
+                                <span class="CV-timeline-heading-title">Prashuk Infotech Ventures</span>
+                            </h3>
+                            <p class="experience-position">
+                                <i class="bi bi-arrow-right-short"></i>
+                                Software Design Engineer <span>(Jun 2018 - Dec 2019)</span> <br>
+                                <i class="bi bi-arrow-right-short"></i>
+                                Internship Trainee <span>(Jan 2018 - May 2018)</span>
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="content-container technical-container" id="proficiencies">
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+            <div class="row my-auto">
+                <div class="col-12">
+                    <h2 class="text-center" style="text-transform: uppercase; font-family: 'Lexend', serif;">
+                        Technical Proficiencies</h2>
+                    <div class="mb-5 heading-border"></div>
+                </div>
+                <div class="col-12 tech-icons" style="text-align: center;">
+                    <i class="fa-brands fa-react"></i>
+                    <i class="fa-brands fa-node"></i>
+                    <i class="fa-brands fa-python"></i>
+                    <i class="fa-brands fa-bootstrap"></i>
+                    <i class="fa-brands fa-js"></i>
+                    <i class="fa-brands fa-jira"></i>
+                    <i class="fa-brands fa-confluence"></i>
+                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-docker"></i>
+                    <i class="fa-brands fa-aws"></i>
+                    <i class="fa-brands fa-android"></i>
+                    <i class="fa-brands fa-magento"></i>
+                    <i class="fa-brands fa-wordpress"></i>
+                    <i class="fa-brands fa-linux"></i>
+                    <i class="fa-brands fa-windows"></i>
+                    <i class="fa-brands fa-laravel"></i>
+                    <i class="fa-brands fa-php"></i>
+                    <i class="fa-brands fa-git"></i>
+                    <i class="fa-brands fa-jenkins"></i>
+                    <i class="fa-solid fa-microchip"></i>
+                    <i class="fa-solid fa-database"></i>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="content-container certificate-container" id="certificates">
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="certificate">
+            <div class="row my-auto">
+                <div class="col-12">
+                    <h2 class="text-center"
+                        style="color: black; font-family: 'Lexend', serif; text-transform: uppercase;">
+                        Certifications</h2>
+                    <div class="mb-5 heading-border"></div>
+                </div>
+                <div class="col-12" style="text-align: center;">
+                    <div class="row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <div class="justify-content-center align-items-center" style="padding: 10px;">
+                                <div class="card text-center headshot animated-card">
+                                    <img src="img/aws.png" class="card-img-top mx-auto"
+                                        style="width: 100px; padding-top: 15px;" alt="AWS">
+                                    <div class="card-body">
+                                        <h5 class="card-title cert-card-title">AWS Knowledge: Cloud Essentials</h5>
+                                        <h6 class="card-subtitle cert-card-subtitle mb-2 text-body-secondary">Amazon
+                                            Web Services (AWS)
+                                        </h6>
+                                        <h6 class="card-subtitle cert-card-subtitle-issued mb-2 text-body-secondary">
+                                            Issued Jun 2024</h6>
+                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                                            href="https://www.credly.com/badges/164680c0-02cc-4040-b70b-7cd23c539f23/linked_in_profile"
+                                            target="_blank">
+                                            Show Certificate &nbsp;<i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <div class="justify-content-center align-items-center" style="padding: 10px;"
+                                style="padding: 10px;">
+                                <div class="card text-center headshot animated-card">
+                                    <img src="img/workato.webp" class="card-img-top mx-auto"
+                                        style="width: 67px; padding-top: 15px;" alt="Workato">
+                                    <div class="card-body">
+                                        <h5 class="card-title cert-card-title">Automation Pro &#8545;</h5>
+                                        <h6 class="card-subtitle cert-card-subtitle mb-2 text-body-secondary">
+                                            Workato
+                                        </h6>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary cert-card-subtitle-issued">
+                                            Issued May 2023</h6>
+                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                                            href="https://credentials.workato.com/9ee602e3-a078-4e9b-b2e7-b99452e49907#acc.qIMsZdnp"
+                                            target="_blank">
+                                            Show Certificate &nbsp;<i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="content-container work-container" style="border-radius: 0 0 50px 50px;" id="portfolio">
+        <section class="work-section p-3 p-lg-5 d-flex flex-column" id="work">
+            <div class="row my-auto">
+                <div class="col-12">
+                    <h2 class="text-center"
+                        style="color: black; font-family: 'Lexend', serif; text-transform: uppercase;">Portfolio
+                    </h2>
+                    <h3 class="text-center" style="color: black; font-family: 'Lexend', serif; font-size: 15px;">
+                        Some of my
+                        finest work</h3>
+                    <div class="mb-5 heading-border"></div>
+                </div>
+                <div class="col-12" style="text-align: center;">
+                    <div class="row">
+                        <div class="card work-card">
+                            <div class="card-body work-card-body">
+                                <div class="col-sm-1 mb-3 mb-sm-0" style="text-align: center;">
+                                    <i class="fa-solid fa-headset"></i>
+                                </div>
+                                <div class="col-sm-11 mb-3 mb-sm-0">
+                                    <h5 class="card-title cert-card-title">AI Powered Real-Time Call Analysis SAAS
+                                        <span style="color: #222222; font-size: 14px;">| Philippines</span>
+                                    </h5>
+                                    Because missing details in calls is so last decade! Get instant transcriptions,
+                                    sentiment insights, and smart summaries, all while your AI sidekick does the
+                                    heavy lifting. No more guessing—just pure, actionable intelligence in real time!
+                                    <br>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Python</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Tkinter</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Windows App</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">LDAP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card work-card">
+                            <div class="card-body work-card-body">
+                                <div class="col-sm-1 mb-3 mb-sm-0" style="text-align: center;">
+                                    <i class="fa-duotone fa-solid fa-hexagon-nodes"></i>
+                                </div>
+                                <div class="col-sm-11 mb-3 mb-sm-0">
+                                    <h5 class="card-title cert-card-title">Auto Evaluation & Assessment SAAS <span
+                                            style="color: #222222; font-size: 14px;">| USA</span>
+                                    </h5>
+                                    Say goodbye to manual grading and hello to your AI-powered examiner! Instantly
+                                    evaluate tests, analyze performance, and generate insights—because even teachers
+                                    deserve a coffee break.
+                                    <br>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">NestJs</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">MongoDB</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">OpenAI</span>
+                                    <span class="badge text-bg-light" style="background-color: #ffeded !important;">AWS
+                                        ECS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card work-card">
+                            <div class="card-body work-card-body">
+                                <div class="col-sm-1 mb-3 mb-sm-0" style="text-align: center;">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                                <div class="col-sm-11 mb-3 mb-sm-0">
+                                    <h5 class="card-title cert-card-title">Craftcart - Ecommerce <span
+                                            style="color: #222222; font-size: 14px;">| India</span>
+                                    </h5>
+                                    Transforming your online store into a masterpiece of efficiency and style. With
+                                    seamless navigation and a flair for showcasing products, it's like having a
+                                    digital Michelangelo sculpting your sales. Say goodbye to cart abandonment and
+                                    hello to a gallery of satisfied customers!
+                                    <br>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Magento</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card work-card">
+                            <div class="card-body work-card-body">
+                                <div class="col-sm-1 mb-3 mb-sm-0" style="text-align: center;">
+                                    <i class="fa-solid fa-cannabis"></i>
+                                </div>
+                                <div class="col-sm-11 mb-3 mb-sm-0">
+                                    <h5 class="card-title cert-card-title">Sessions Cannabis - Ecommerce & Branding
+                                        Software
+                                        <span style="color: #222222; font-size: 14px;">| Canada</span>
+                                    </h5>
+                                    Another seamless online shopping experience that reflects the Canada's best
+                                    Cannabis brands in pure essence.The branding software ensured that all the
+                                    offline showrooms have the same design labels and asthecially pleasant products
+                                    details
+                                    card for the customers. A pure GEM!
+                                    <br>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Magento</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Javascript</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card work-card">
+                            <div class="card-body work-card-body">
+                                <div class="col-sm-1 mb-3 mb-sm-0" style="text-align: center;">
+                                    <i class="fa-solid fa-id-badge"></i>
+                                </div>
+                                <div class="col-sm-11 mb-3 mb-sm-0">
+                                    <h5 class="card-title cert-card-title">Utah Valley University - NFC IDs
+                                        <span style="color: #222222; font-size: 14px;">| USA</span>
+                                    </h5>
+                                    No more fumbling for keys or passes—UVU students can now unlock bus doors and
+                                    classrooms with a simple tap on their Android app using NFC. Because swiping is
+                                    for dating apps, not campus access!
+                                    <br>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Framework 7</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Apache Cordova</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">Apache Phonegap</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card work-card" style="border-bottom: none;">
+                            <div class="card-body work-card-body">
+                                <div class="col-sm-1 mb-3 mb-sm-0" style="text-align: center;">
+                                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                                </div>
+                                <div class="col-sm-11 mb-3 mb-sm-0">
+                                    <h5 class="card-title cert-card-title">GEDIH Global
+                                        <span style="color: #222222; font-size: 14px;">| Europe & Americas</span>
+                                    </h5>
+                                    GEDIH stands for Global Economic Development and Innovation for Humanity. It’s a
+                                    startup investment funding platform aimed to resolving problems of funding and
+                                    investment for investors and accelerators.
+                                    <br>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">JAVA</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">PHP</span>
+                                    <span class="badge text-bg-light"
+                                        style="background-color: #ffeded !important;">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="content-container">
+        <section class="p-3 p-lg-5 d-flex flex-column" id="contact">
+            <div class="row my-auto">
+                <div class="col-12">
+                    <h2 class="text-center contact-title">Nimitt Ajmera</h2>
+                    <h6 class="contact-title-location">INDORE, MP, INDIA</h6>
+                    <h6 class="contact-title-location">
+                        <span class="contact-title-location-span">nimitt12@gmail.com</span>
+                        <span class="contact-title-location-span">| nimitt12@outlook.com</span>
+                        <span class="contact-title-location-span">| nimitt12@yahoo.com</span>
+                    </h6>
+                    <h6 class="contact-title-location" style="margin-top: 80px;">
+                        <span class="contact-title-location-span">All Right Reserved | </span>
+                        <span class="contact-title-location-span"><a style="color: #6f6f6f; text-decoration: none;"
+                                href="https://lordicon.com/">Animated icons by
+                                Lordicon</a></span>
+                    </h6>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Global javascript -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/counter/jquery.waypoints.min.js"></script>
+    <script src="js/counter/jquery.counterup.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".filter-b").click(function () {
+                var value = $(this).attr('data-filter');
+                if (value == "all") {
+                    $('.filter').show('1000');
+                } else {
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+                }
+            });
+
+            if ($(".filter-b").removeClass("active")) {
+                $(this).removeClass("active");
+            }
+            $(this).addClass("active");
+        });
+
+        // SKILLS
+        $(function () {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 2000
+            });
+
+        });
+    </script>
+    <script>
+        const text = baffle(".data");
+        text.set({
+            characters: '░▒░ ░██░> ████▓ >█> ░/█>█ ██░░ █<▒ ▓██░ ░/░▒',
+            speed: 120
+        });
+
+        text.start();
+        text.reveal(4000);
+    </script>
+    <script>
+        // Create particle effect
+        const particlesContainer = document.getElementById('particles-container');
+        const particleCount = 80;
+
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
+        }
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            // Random size (small)
+            const size = Math.random() * 3 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            // Initial position
+            resetParticle(particle);
+
+            particlesContainer.appendChild(particle);
+
+            // Animate
+            animateParticle(particle);
+        }
+
+        function resetParticle(particle) {
+            // Random position
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+
+            particle.style.left = `${posX}%`;
+            particle.style.top = `${posY}%`;
+            particle.style.opacity = '0';
+
+            return {
+                x: posX,
+                y: posY
+            };
+        }
+
+        function animateParticle(particle) {
+            // Initial position
+            const pos = resetParticle(particle);
+
+            // Random animation properties
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * 5;
+
+            // Animate with GSAP-like timing
+            setTimeout(() => {
+                particle.style.transition = `all ${duration}s linear`;
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+
+                // Move in a slight direction
+                const moveX = pos.x + (Math.random() * 20 - 10);
+                const moveY = pos.y - Math.random() * 30; // Move upwards
+
+                particle.style.left = `${moveX}%`;
+                particle.style.top = `${moveY}%`;
+
+                // Reset after animation completes
+                setTimeout(() => {
+                    animateParticle(particle);
+                }, duration * 1000);
+            }, delay * 1000);
+        }
+
+        // Mouse interaction
+        document.addEventListener('mousemove', (e) => {
+            // Create particles at mouse position
+            const mouseX = (e.clientX / window.innerWidth) * 100;
+            const mouseY = (e.clientY / window.innerHeight) * 100;
+
+            // Create temporary particle
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            // Small size
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            // Position at mouse
+            particle.style.left = `${mouseX}%`;
+            particle.style.top = `${mouseY}%`;
+            particle.style.opacity = '0.6';
+
+            particlesContainer.appendChild(particle);
+
+            // Animate outward
+            setTimeout(() => {
+                particle.style.transition = 'all 2s ease-out';
+                particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
+                particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
+                particle.style.opacity = '0';
+
+                // Remove after animation
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            }, 10);
+
+            // Subtle movement of gradient spheres
+            const spheres = document.querySelectorAll('.gradient-sphere');
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
+
+            spheres.forEach(sphere => {
+                const currentTransform = getComputedStyle(sphere).transform;
+                sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,463 @@
+.gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.gradient-sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.sphere-1 {
+    width: 40vw;
+    height: 40vw;
+    background: linear-gradient(40deg, rgba(255, 0, 128, 0.8), rgba(255, 102, 0, 0.4));
+    top: -10%;
+    left: -10%;
+    animation: float-1 15s ease-in-out infinite alternate;
+}
+
+.sphere-2 {
+    width: 45vw;
+    height: 45vw;
+    background: linear-gradient(240deg, rgba(72, 0, 255, 0.8), rgba(0, 183, 255, 0.4));
+    bottom: -20%;
+    right: -10%;
+    animation: float-2 18s ease-in-out infinite alternate;
+}
+
+.sphere-3 {
+    width: 30vw;
+    height: 30vw;
+    background: linear-gradient(120deg, rgba(133, 89, 255, 0.5), rgba(98, 216, 249, 0.3));
+    top: 60%;
+    left: 20%;
+    animation: float-3 20s ease-in-out infinite alternate;
+}
+
+.noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    z-index: 5;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@keyframes float-1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(10%, 10%) scale(1.1);
+    }
+}
+
+@keyframes float-2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-10%, -5%) scale(1.15);
+    }
+}
+
+@keyframes float-3 {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translate(-5%, 10%) scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    z-index: 2;
+}
+
+.glow {
+    position: absolute;
+    width: 40vw;
+    height: 40vh;
+    background: radial-gradient(circle, rgba(72, 0, 255, 0.15), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    animation: pulse 8s infinite alternate;
+    filter: blur(30px);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    100% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.typeform-div>button {
+    background: linear-gradient(90deg, #ff3a82, #5233ff) !important;
+    color: white !important;
+}
+
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.main-name {
+    font-family: 'Lexend', serif;
+    font-size: 50px !important;
+}
+
+.lord-icon-social {
+    width: 55px;
+    height: 55px
+}
+
+.menu-nav-icons {
+    padding: 5px;
+}
+
+.nav-link {
+    font-family: 'Lexend', sans-serif;
+    font-size: 20px !important;
+}
+
+.download-cv-button {
+    padding: 10px;
+}
+
+.download-cv-button-main {
+    width: -moz-available;
+}
+
+.lord-icon-main-developer {
+    width: 175px;
+    height: 175px;
+}
+
+/*==================================================
+                    EXPERIENCE
+====================================================*/
+
+.experience-container {
+    padding: 20vh 0 0 0 !important;
+}
+
+main {
+    background-color: #fff;
+}
+
+.CV-page {
+    margin: 0 auto;
+    padding: 0 2em;
+    color: #222222;
+    font-size: 1em;
+    font-family: 'Lexend', sans-serif;
+    border-radius: 70px 70px 0 0;
+}
+
+@media all and (max-width: 500px) {
+    .CV-page {
+        padding: 0 1em;
+    }
+}
+
+/* if IE<=7 */
+
+.CV-page\  {
+    width: 1100px;
+    font-family: 'Lexend', sans-serif;
+}
+
+.CV-secondaryHeading {
+    position: relative;
+    margin: 2em 0 0;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+.CV-grid {
+    display: table;
+}
+
+.CV-grid-column {
+    display: table-cell;
+}
+
+.CV-timeline {
+    position: relative;
+    margin: 0 0 0 0.5em;
+    padding-left: 1.5em;
+    border-left: solid 1px #222222;
+}
+
+.CV-timeline:first-of-type {
+    margin-top: 1em;
+}
+
+.CV-timeline:last-of-type {
+    border-left-color: transparent;
+}
+
+.CV-timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -0.5em;
+    display: block;
+    width: 1em;
+    height: 1em;
+    border: solid 1px #222222;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.CV-timeline-heading {
+    margin: 0;
+    padding-bottom: 0.1em;
+    line-height: 1em;
+    font-weight: normal;
+    -webkit-transform: translateY(-0.1em);
+    -ms-transform: translateY(-0.1em);
+    transform: translateY(-0.1em);
+}
+
+.CV-timeline-heading-title {
+    line-height: 1;
+    color: #ff3a82;
+    font-size: 22px;
+}
+
+.CV-timeline-heading-location {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.CV-timeline-heading-duration {
+    display: block;
+    font-size: 18px;
+    color: #6f6f6f;
+}
+
+.CV-timeline-details {
+    display: block;
+    margin: 0;
+    padding-bottom: 2em;
+    padding: 0 0 2em 1em;
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGElEQVQIW2NkYGD4D8TIgJERTQDMpVAQAGaUAQbko3DsAAAAAElFTkSuQmCC");
+}
+
+.CV-timeline-details-item {
+    margin-bottom: 0.5em;
+}
+
+.CV-timeline>p {
+    color: black;
+}
+
+.experience-position {
+    color: #222222;
+    font-size: 16px;
+}
+
+.experience-position>span {
+    color: #6f6f6f;
+    font-size: 12px;
+}
+
+/*==================================================
+                    TECHNICAL SKILLS
+====================================================*/
+.tech-icons>i {
+    font-size: 50px;
+    color: #ff3a82;
+    padding: 10px;
+}
+
+/*==================================================
+                    CERTIFICATES
+====================================================*/
+.certificate-container {
+    background: white;
+}
+
+.headshot {
+    border: calc(8px + 0.2vw) solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-size: cover;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 5px #5233ff;
+    border-radius: 20px !important;
+}
+
+@keyframes glowingShadow {
+    0% {
+        box-shadow: 0 0 5px 5px #e2defc;
+    }
+
+    50% {
+        box-shadow: 0 0 5px 5px #e2defc;
+    }
+
+    100% {
+        box-shadow: 0 0 5px 5px #e2defc;
+    }
+}
+
+.animated-card {
+    border: calc(5px + 0.2vw) solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-size: cover;
+    box-sizing: border-box;
+    box-shadow: 0 0 1px 1px #e2defc;
+    animation: glowingShadow 2s infinite alternate ease-in-out;
+}
+
+.cert-card-title {
+    color: #ff3a82 !important;
+    font-family: 'Lexend', sans-serif;
+}
+
+.cert-card-subtitle {
+    font-family: 'Lexend', sans-serif;
+}
+
+.cert-card-subtitle-issued {
+    font-family: 'Lexend', sans-serif;
+    color: #6f6f6f !important;
+    font-size: 12px;
+    font-weight: initial;
+}
+
+/*==================================================
+                    WORK
+====================================================*/
+.work-container {
+    background: white;
+}
+
+.work-card {
+    margin-bottom: 10px;
+    text-align: left;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.work-card-body {
+    display: flex;
+}
+
+.work-card-body i {
+    font-size: 45px;
+}
+
+/*==================================================
+                    CONTACT
+====================================================*/
+
+.contact-title {
+    font-family: 'Lexend', sans-serif;
+}
+
+.contact-title-location {
+    font-family: 'Lexend', sans-serif;
+    color: #6f6f6f !important;
+    font-size: 14px;
+    font-weight: initial;
+    text-align: center;
+}
+
+.contact-title-location-span {
+    font-family: 'Lexend', sans-serif;
+    color: #6f6f6f !important;
+    font-size: 14px;
+    font-weight: initial;
+    text-align: center !important;
+}
+
+/*==================================================
+                    MEDIA QUERY
+====================================================*/
+
+@media only screen and (max-width: 767px) {
+
+    .main-name {
+        font-family: 'Lexend', serif;
+        font-size: 25px !important;
+    }
+
+    .developer-text {
+        font-size: 20px !important;
+    }
+
+    .typeform-div>button {
+        font-size: 14px !important;
+
+    }
+
+    .lord-icon-social {
+        width: 40px;
+    }
+
+    .CV-secondaryHeading {
+        text-align: center;
+    }
+
+    .work-card-body {
+        display: inline;
+    }
+
+    .lord-icon-main-developer {
+        width: 120px;
+    }
+}

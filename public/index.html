@@ -247,13 +247,13 @@
         <main class="CV-page">
             <div class="CV-grid">
                 <div class="CV-grid-column">
-                    <div class="CV-jobs">
+                    <div class="CV-jobs" style="padding: 25px;">
                         <h2 class="CV-secondaryHeading CV-jobs-heading">About Me</h2>
                         <p style="text-align: justify; color: black;">As a Developer, I
                             lead teams in delivering high-quality
                             software components for complex systems. My role involves ensuring adherence to coding
                             standards and maintaining software quality. I am an alumnus of Sri Aurobindo Institute of
-                            Technology and have previously contributed to organizations such as TaskUs. Based in Indore,
+                            Technology and have contributed to organizations such as TaskUs. Based in Indore,
                             I am committed to fostering agile methodologies and continuous improvement in software
                             development processes.</p>
                         <h2 class="CV-secondaryHeading CV-jobs-heading">Career Journey</h2>
@@ -782,8 +782,16 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-      </script>
-
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type":    "Organization",
+            "name":     "Nimitt Ajmera",
+            "url":      "https://nimittajmera.com",
+            "logo":     "https://nimittajmera.com/img/nimitt-ajmera.png"
+        }
+    </script>
 </body>
 
 </html>

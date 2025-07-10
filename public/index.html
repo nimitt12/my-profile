@@ -85,6 +85,7 @@
             margin-bottom: 1.5rem;
             background: linear-gradient(to right, #fff, #acacac);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
@@ -249,11 +250,11 @@
                 <div class="CV-grid-column">
                     <div class="CV-jobs" style="padding: 25px;">
                         <h2 class="CV-secondaryHeading CV-jobs-heading">About Me</h2>
-                        <p style="text-align: justify; color: black;">As a Developer, I
+                        <p style="text-align: justify; color: black; font-weight: 300; font-size: large;">As a <b style="font-weight: 600;">Developer</b>, I
                             lead teams in delivering high-quality
                             software components for complex systems. My role involves ensuring adherence to coding
-                            standards and maintaining software quality. I am an alumnus of Sri Aurobindo Institute of
-                            Technology and have contributed to organizations such as TaskUs. Based in Indore,
+                            standards and maintaining software quality. I am an alumnus of <b style="font-weight: 600;">Sri Aurobindo Institute of
+                            Technology</b> and have contributed to multiple organizations. Based in Indore,
                             I am committed to fostering agile methodologies and continuous improvement in software
                             development processes.</p>
                         <h2 class="CV-secondaryHeading CV-jobs-heading">Career Journey</h2>
@@ -311,10 +312,10 @@
                     <div class="mb-5 heading-border"></div>
                 </div>
                 <div class="col-12 tech-icons" style="text-align: center;">
-                    <i class="fa-brands fa-react"></i>
                     <i class="fa-brands fa-node"></i>
+                    <i class="fa-brands fa-react"></i>
                     <i class="fa-brands fa-python"></i>
-                    <i class="fa-brands fa-bootstrap"></i>
+                    <i class="fa-brands fa-css"></i>
                     <i class="fa-brands fa-js"></i>
                     <i class="fa-brands fa-jira"></i>
                     <i class="fa-brands fa-confluence"></i>
@@ -323,7 +324,6 @@
                     <i class="fa-brands fa-aws"></i>
                     <i class="fa-brands fa-android"></i>
                     <i class="fa-brands fa-magento"></i>
-                    <i class="fa-brands fa-wordpress"></i>
                     <i class="fa-brands fa-linux"></i>
                     <i class="fa-brands fa-windows"></i>
                     <i class="fa-brands fa-laravel"></i>
@@ -348,7 +348,7 @@
                 </div>
                 <div class="col-12" style="text-align: center;">
                     <div class="row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
                             <div class="justify-content-center align-items-center" style="padding: 10px;">
                                 <div class="card text-center headshot animated-card">
                                     <img src="img/aws.png" class="card-img-top mx-auto"
@@ -369,21 +369,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
                             <div class="justify-content-center align-items-center" style="padding: 10px;"
                                 style="padding: 10px;">
                                 <div class="card text-center headshot animated-card">
                                     <img src="img/workato.webp" class="card-img-top mx-auto"
                                         style="width: 67px; padding-top: 15px;" alt="Workato">
                                     <div class="card-body">
-                                        <h5 class="card-title cert-card-title">Automation Pro &#8545;</h5>
+                                        <h5 class="card-title cert-card-title">Automation Pro &#8546;</h5>
                                         <h6 class="card-subtitle cert-card-subtitle mb-2 text-body-secondary">
                                             Workato
                                         </h6>
                                         <h6 class="card-subtitle mb-2 text-body-secondary cert-card-subtitle-issued">
-                                            Issued May 2023</h6>
+                                            Issued May 2025</h6>
                                         <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
-                                            href="https://credentials.workato.com/9ee602e3-a078-4e9b-b2e7-b99452e49907#acc.qIMsZdnp"
+                                            href="https://credentials.workato.com/02e131cb-be21-4d39-a0b5-02e42482d739"
                                             target="_blank">
                                             Show Certificate &nbsp;<i class="bi bi-box-arrow-up-right"></i>
                                         </a>
@@ -391,7 +391,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
                             <div class="justify-content-center align-items-center" style="padding: 10px;"
                                 style="padding: 10px;">
                                 <div class="card text-center headshot animated-card">
@@ -792,6 +792,17 @@
             "logo":     "https://nimittajmera.com/img/nimitt-ajmera.png"
         }
     </script>
+    <script>
+        document
+          .querySelectorAll('#offcanvasNavbar .nav-link')
+          .forEach(link => {
+            link.addEventListener('click', () => {
+              const offcanvasEl = document.getElementById('offcanvasNavbar');
+              const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+              bsOffcanvas.hide();
+            });
+          });
+      </script>
 </body>
 
 </html>

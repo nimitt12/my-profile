@@ -187,7 +187,7 @@
 ====================================================*/
 
 .experience-container {
-    padding: 20vh 0 0 0 !important;
+    padding: 0vh 0 0 0 !important;
 }
 
 main {
@@ -221,6 +221,7 @@ main {
     margin: 2em 0 0;
     text-transform: uppercase;
     padding-bottom: 20px;
+    text-align: center;
 }
 
 .CV-grid {
@@ -450,7 +451,7 @@ main {
     }
 
     .CV-secondaryHeading {
-        text-align: center;
+        text-align: center !important;
     }
 
     .work-card-body {

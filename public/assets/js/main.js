@@ -356,7 +356,7 @@
             gl.viewport(0, 0, canvas.width, canvas.height);
         };
         resize();
-        window.addEventListener('resize', resize);
+        new ResizeObserver(resize).observe(canvas);
 
         if (finePointer) {
             window.addEventListener('pointermove', (e) => {
@@ -756,7 +756,7 @@
     initNav();
 
     /* ------------------------------------------------------------------
-       Nav: hide on scroll down, current section label
+       Nav: hide on scroll down
        ------------------------------------------------------------------ */
 
     function initNav() {
@@ -768,23 +768,6 @@
                 if (!menuOpen) nav.classList.toggle('is-hidden', self.direction === 1);
             },
             onLeaveBack: () => nav.classList.remove('is-hidden')
-        });
-
-        const num = $('.nav__section-num');
-        const name = $('.nav__section-name');
-        let current = '00';
-        $$('[data-section]').forEach((section) => {
-            ScrollTrigger.create({
-                trigger: section,
-                start: 'top 50%',
-                end: 'bottom 50%',
-                onToggle: (self) => {
-                    if (!self.isActive || current === section.dataset.section) return;
-                    current = section.dataset.section;
-                    num.textContent = current;
-                    scramble(name, section.dataset.name);
-                }
-            });
         });
     }
 

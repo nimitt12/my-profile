@@ -2,7 +2,7 @@
 // engines can index and list them as sitelinks. index.html is the single source of
 // truth: edit it, then run `node scripts/build-pages.mjs` (also runs on `firebase deploy`).
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const PUBLIC = fileURLToPath(new URL('../public/', import.meta.url));
@@ -219,8 +219,10 @@ ${section}
 
 ${footer}`;
 
-    writeFileSync(`${PUBLIC}${page.slug}.html`, html);
-    console.log(`✓ ${page.slug}.html`);
+    // about/index.html rather than about.html so /about resolves on any static server, not just Firebase
+    mkdirSync(`${PUBLIC}${page.slug}`, { recursive: true });
+    writeFileSync(`${PUBLIC}${page.slug}/index.html`, html);
+    console.log(`✓ ${page.slug}/index.html`);
 });
 
 // Sitemap

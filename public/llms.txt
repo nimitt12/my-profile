@@ -1,0 +1,19 @@
+# Nimitt Ajmera
+
+> Nimitt Ajmera is a Development Manager at TaskUs and a full stack developer based in Indore, India, with 8+ years of experience building AI SaaS, cloud (AWS, GCP) and Workato automation products for clients across five regions.
+
+## Pages
+
+- [Home](https://nimittajmera.com/): overview, highlights and contact
+- [About](https://nimittajmera.com/about): background, education and key numbers
+- [Experience](https://nimittajmera.com/experience): career from intern (2018) to Development Manager at TaskUs (2026)
+- [Skills](https://nimittajmera.com/skills): languages, frameworks, cloud, data, commerce and automation tools
+- [Certifications](https://nimittajmera.com/certifications): Workato Automation Pro III and II, AWS Knowledge: Cloud Essentials, B.E. from SAIT Indore
+- [Projects](https://nimittajmera.com/projects): six flagship products, including AI call analysis SaaS and e-commerce platforms
+- [Contact](https://nimittajmera.com/contact): email, contact form and social profiles
+
+## Profiles
+
+- [LinkedIn](https://in.linkedin.com/in/nimitt-ajmera)
+- [GitHub](https://github.com/nimitt12)
+- [X](https://x.com/nimittajmera)

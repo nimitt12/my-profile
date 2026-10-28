@@ -193,11 +193,12 @@
         }
     });
 
-    // In-page anchors (smooth via Lenis when available)
+    // In-page anchors (smooth via Lenis when available). Links to section pages
+    // carry data-scroll so they scroll in place when that section is on this page.
     document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href^="#"]');
+        const link = e.target.closest('a[href^="#"], a[data-scroll]');
         if (!link) return;
-        const id = link.getAttribute('href').slice(1);
+        const id = link.dataset.scroll || link.getAttribute('href').slice(1);
         const target = id ? document.getElementById(id) : null;
         if (!target) return;
         e.preventDefault();
@@ -428,6 +429,8 @@
 
     const { gsap, ScrollTrigger } = window;
     gsap.registerPlugin(ScrollTrigger);
+    // Section pages only carry some of the animated elements
+    gsap.config({ nullTargetWarn: false });
 
     /* ------------------------------------------------------------------
        Smooth scroll
@@ -539,16 +542,18 @@
        ------------------------------------------------------------------ */
 
     // Hero parallax out
-    gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
-        .to('.hero__line--1', { xPercent: -14, ease: 'none' }, 0)
-        .to('.hero__line--2', { xPercent: 12, ease: 'none' }, 0)
-        .to('.hero__content', { yPercent: 22, opacity: 0.15, ease: 'none' }, 0)
-        .to('.hero__canvas', { scale: 1.12, opacity: 0.35, ease: 'none' }, 0);
+    if ($('.hero')) {
+        gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
+            .to('.hero__line--1', { xPercent: -14, ease: 'none' }, 0)
+            .to('.hero__line--2', { xPercent: 12, ease: 'none' }, 0)
+            .to('.hero__content', { yPercent: 22, opacity: 0.15, ease: 'none' }, 0)
+            .to('.hero__canvas', { scale: 1.12, opacity: 0.35, ease: 'none' }, 0);
+    }
 
     const mm = gsap.matchMedia();
 
     // Journey: horizontal scroll on desktop
-    mm.add('(min-width: 901px)', () => {
+    if ($('.journey')) mm.add('(min-width: 901px)', () => {
         root.classList.add('js-pin');
         const track = $('.journey__track');
         const bar = $('.journey__progress span');
@@ -661,12 +666,14 @@
     }
 
     // About portrait parallax
-    gsap.fromTo('.about__photo img', { yPercent: -8, scale: 1.25 }, {
-        yPercent: 8,
-        scale: 1.25,
-        ease: 'none',
-        scrollTrigger: { trigger: '.about__photo', start: 'top bottom', end: 'bottom top', scrub: true }
-    });
+    if ($('.about__photo')) {
+        gsap.fromTo('.about__photo img', { yPercent: -8, scale: 1.25 }, {
+            yPercent: 8,
+            scale: 1.25,
+            ease: 'none',
+            scrollTrigger: { trigger: '.about__photo', start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+    }
 
     // Generic reveals
     ScrollTrigger.batch('[data-reveal]', {
@@ -699,7 +706,7 @@
     });
 
     // Certificates fan out from a stack
-    mm.add('(min-width: 1101px)', () => {
+    if ($('.certs')) mm.add('(min-width: 1101px)', () => {
         const cards = $$('.cert');
         gsap.fromTo(cards, {
             x: (i) => (1 - i) * (cards[0].offsetWidth + 20),
@@ -715,7 +722,7 @@
         });
     });
 
-    mm.add('(max-width: 1100px)', () => {
+    if ($('.certs')) mm.add('(max-width: 1100px)', () => {
         gsap.from('.cert', {
             y: 80,
             opacity: 0,
@@ -755,11 +762,13 @@
     });
 
     // Contact glow follows the scroll a little
-    gsap.fromTo('.contact__glow', { yPercent: -20 }, {
-        yPercent: 20,
-        ease: 'none',
-        scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'bottom top', scrub: true }
-    });
+    if ($('.contact')) {
+        gsap.fromTo('.contact__glow', { yPercent: -20 }, {
+            yPercent: 20,
+            ease: 'none',
+            scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+    }
 
     // Page progress
     gsap.to('.progress span', {

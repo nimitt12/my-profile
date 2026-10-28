@@ -1098,6 +1098,7 @@ ul {
 }
 
 .section__label {
+    font: inherit;
     color: var(--muted);
 }
 
@@ -2450,6 +2451,28 @@ ul {
     background-clip: text;
 }
 
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 28px;
+    padding: clamp(28px, 5vh, 48px) var(--gutter);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.footer__nav a {
+    color: var(--muted);
+    transition: color 0.3s;
+}
+
+.footer__nav a:hover,
+.footer__nav a[aria-current="page"] {
+    color: var(--text);
+}
+
 .footer__bar {
     display: flex;
     flex-wrap: wrap;
@@ -2470,6 +2493,123 @@ ul {
     align-items: center;
     gap: 8px;
     color: var(--text);
+}
+
+/* ---------- Section pages ---------- */
+
+.page-hero {
+    position: relative;
+    padding: clamp(150px, 26vh, 240px) 0 clamp(20px, 4vh, 40px);
+    overflow: hidden;
+}
+
+.page-hero__glow {
+    position: absolute;
+    width: 70vmax;
+    height: 70vmax;
+    left: 50%;
+    top: -45vmax;
+    translate: -50% 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(82, 51, 255, 0.32), rgba(255, 58, 130, 0.12) 45%, transparent 68%);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.crumbs {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+}
+
+.crumbs li + li::before {
+    content: '/';
+    margin-right: 10px;
+    color: var(--pink);
+}
+
+.crumbs a {
+    color: var(--muted);
+    transition: color 0.3s;
+}
+
+.crumbs a:hover {
+    color: var(--text);
+}
+
+.page-hero .display {
+    position: relative;
+    max-width: 16ch;
+    margin-bottom: 28px;
+}
+
+.page-hero__lede {
+    position: relative;
+    max-width: 60ch;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.65;
+    color: var(--muted);
+}
+
+.page .section {
+    padding-top: clamp(60px, 10vh, 120px);
+}
+
+.page-next {
+    padding: clamp(40px, 8vh, 100px) 0 clamp(60px, 10vh, 120px);
+}
+
+.page-next__link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px 32px;
+    padding: clamp(28px, 5vh, 48px) 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.page-next__label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+}
+
+.page-next__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 6vw, 5.4rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    transition: color 0.4s;
+}
+
+.page-next__title i {
+    font-size: 0.5em;
+    transition: transform 0.6s var(--ease);
+}
+
+.page-next__link:hover .page-next__title {
+    color: var(--pink);
+}
+
+.page-next__link:hover .page-next__title i {
+    transform: translateX(10px) rotate(-45deg);
 }
 
 /* ---------- Toast ---------- */

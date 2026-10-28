@@ -161,9 +161,15 @@
         link.style.setProperty('--d', i);
     });
 
+    let menuCloseTimer;
+
     function setMenu(open, fromKeyboard = false) {
         menuOpen = open;
+        clearTimeout(menuCloseTimer);
         root.classList.toggle('menu-open', open);
+        // Keep the overlay visible while the exit animation plays (matches the CSS timings)
+        root.classList.toggle('menu-closing', !open);
+        if (!open) menuCloseTimer = setTimeout(() => root.classList.remove('menu-closing'), 1050);
         menuBtn.setAttribute('aria-expanded', String(open));
         menu.setAttribute('aria-hidden', String(!open));
         menu.inert = !open;
@@ -465,6 +471,7 @@
     if (reduceMotion) {
         $('.preloader')?.remove();
         gsap.set('[data-reveal], [data-hero-fade]', { opacity: 1, y: 0 });
+        splitHeadings.forEach(({ el }) => el.classList.add('is-revealed'));
         initNav();
         return;
     }
@@ -631,7 +638,15 @@
             trigger: el,
             start: 'top 85%',
             once: true,
-            onEnter: () => gsap.to(words, { yPercent: 0, rotate: 0, duration: 1.3, ease: 'expo.out', stagger: 0.06 })
+            onEnter: () => gsap.to(words, {
+                yPercent: 0,
+                rotate: 0,
+                duration: 1.3,
+                ease: 'expo.out',
+                stagger: 0.06,
+                // The masks only matter mid-reveal; unclip afterwards so no glyph can be cut
+                onComplete: () => el.classList.add('is-revealed')
+            })
         });
     });
 

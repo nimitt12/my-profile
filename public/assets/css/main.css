@@ -502,28 +502,52 @@ ul {
     position: relative;
     display: grid;
     place-items: center;
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     border: 1px solid var(--line-2);
     background: rgba(6, 6, 9, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 0.95rem;
-    letter-spacing: -0.02em;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: border-color 0.4s;
 }
 
-.nav__dot {
-    position: absolute;
-    right: 2px;
-    top: 4px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--pink);
-    box-shadow: 0 0 12px var(--pink);
+.nav__logo:hover {
+    border-color: rgba(255, 58, 130, 0.6);
+}
+
+.nav__mark {
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.04em;
+}
+
+.nav__br {
+    color: var(--muted);
+    transition: transform 0.6s var(--ease), color 0.4s;
+}
+
+.nav__slash {
+    background: linear-gradient(180deg, var(--pink), var(--violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.nav__logo:hover .nav__br {
+    color: var(--text);
+}
+
+.nav__logo:hover .nav__br:first-child {
+    transform: translateX(-3px);
+}
+
+.nav__logo:hover .nav__br:last-child {
+    transform: translateX(3px);
 }
 
 .nav__right {
@@ -618,6 +642,11 @@ ul {
     pointer-events: auto;
 }
 
+/* .menu-closing stays on <html> while the exit plays, then JS removes it */
+.menu-closing .menu {
+    visibility: visible;
+}
+
 .menu__bg {
     position: absolute;
     inset: 0;
@@ -626,11 +655,15 @@ ul {
         radial-gradient(50% 50% at 10% 90%, rgba(255, 58, 130, 0.18), transparent 70%),
         #08080d;
     clip-path: circle(0% at calc(100% - 60px) 44px);
-    transition: clip-path 0.9s var(--ease-in-out);
 }
 
 .menu-open .menu__bg {
     clip-path: circle(150% at calc(100% - 60px) 44px);
+    transition: clip-path 0.9s var(--ease-in-out);
+}
+
+.menu-closing .menu__bg {
+    transition: clip-path 0.75s var(--ease-in-out) 0.25s;
 }
 
 .menu__inner {
@@ -665,7 +698,6 @@ ul {
 .menu__label {
     display: inline-block;
     transform: translateY(110%);
-    transition: transform 0.8s var(--ease), color 0.4s, opacity 0.4s;
 }
 
 .menu__num {
@@ -679,15 +711,24 @@ ul {
 .menu-open .menu__num,
 .menu-open .menu__label {
     transform: none;
+    transition: transform 0.8s var(--ease), color 0.4s, opacity 0.4s;
     transition-delay: calc(0.25s + var(--d, 0) * 0.06s);
 }
 
+/* Exit upward, last link first */
+.menu-closing .menu__num,
+.menu-closing .menu__label {
+    transform: translateY(-110%);
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.84, 0);
+    transition-delay: calc((5 - var(--d, 0)) * 0.035s);
+}
+
 @media (hover: hover) {
-    .menu__links:hover .menu__label {
+    .menu-open .menu__links:hover .menu__label {
         opacity: 0.25;
     }
 
-    .menu__link:hover .menu__label {
+    .menu-open .menu__link:hover .menu__label {
         opacity: 1;
         transform: translateX(20px);
         transition-delay: 0s;
@@ -705,13 +746,18 @@ ul {
     align-items: flex-start;
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s, transform 0.8s var(--ease);
 }
 
 .menu-open .menu__aside {
     opacity: 1;
     transform: none;
+    transition: opacity 0.6s, transform 0.8s var(--ease);
     transition-delay: 0.55s;
+}
+
+.menu-closing .menu__aside {
+    transform: translateY(-20px);
+    transition: opacity 0.35s, transform 0.5s cubic-bezier(0.7, 0, 0.84, 0);
 }
 
 .menu__block .eyebrow {
@@ -870,7 +916,8 @@ ul {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding-right: 0.08em;
+    padding: 0 0.08em 0.22em 0;
+    margin-bottom: -0.22em;
 }
 
 .hero__sub {
@@ -1071,16 +1118,23 @@ ul {
     font-style: italic;
     font-weight: 400;
     letter-spacing: -0.01em;
-    padding-right: 0.06em;
+    /* background-clip: text only paints inside the box, so extend it past descenders (g, p, y) */
+    padding: 0 0.06em 0.22em 0;
+    margin-bottom: -0.22em;
 }
 
 /* split text */
+/* Extra room (cancelled by negative margins) so serif-italic descenders and overhangs aren't clipped */
 .word {
     display: inline-block;
     overflow: hidden;
     vertical-align: top;
-    padding-bottom: 0.08em;
-    margin-bottom: -0.08em;
+    padding: 0 0.08em 0.24em;
+    margin: 0 -0.08em -0.24em;
+}
+
+.is-revealed .word {
+    overflow: visible;
 }
 
 .word-inner {
@@ -1490,6 +1544,8 @@ ul {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
 }
 
 .journey__next i {
@@ -1535,19 +1591,22 @@ ul {
         padding: 0;
     }
 
+    /* Years sit above the line and cards hang below it, so taller cards never cross it */
     .js-pin .journey__track {
+        --year: clamp(5rem, 8.6vw, 9rem);
+        --line: calc(var(--year) * 0.8 + 28px);
         flex-direction: row;
         align-items: stretch;
         gap: clamp(24px, 3vw, 48px);
         width: max-content;
         max-width: none;
-        height: min(72vh, 680px);
         margin: 0;
         will-change: transform;
     }
 
     .js-pin .journey__track::before {
         display: block;
+        top: var(--line);
     }
 
     .js-pin .journey__intro {
@@ -1559,11 +1618,12 @@ ul {
     .js-pin .job {
         width: clamp(340px, 34vw, 560px);
         padding-left: 0;
-        gap: 0;
+        justify-content: flex-start;
+        gap: 56px;
     }
 
     .js-pin .job::before {
-        top: 50%;
+        top: var(--line);
     }
 
     .js-pin .job::after {
@@ -1571,7 +1631,7 @@ ul {
     }
 
     .js-pin .job__year {
-        font-size: clamp(5rem, 8.6vw, 9rem);
+        font-size: var(--year);
     }
 
     .js-pin .journey__end {
@@ -1701,25 +1761,36 @@ ul {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.06);
     font-size: 19px;
-    filter: grayscale(1) brightness(1.7);
+    /* Flatten to one uniform gray regardless of brand colour; hover restores the colour */
+    filter: brightness(0) invert(0.82);
     opacity: 0.85;
     transition: filter 0.5s var(--ease), opacity 0.4s, transform 0.6s var(--ease);
 }
 
+/* Image logos (transparent PNG/WebP) styled to match the icon-font tiles */
 .tile__logo {
     display: grid;
     place-items: center;
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    overflow: hidden;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .tile__logo img {
-    width: 34px;
-    height: 34px;
-    transform: scale(2) translateY(11%);
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    /* Flatten to one uniform gray regardless of brand colour; hover restores the colour */
+    filter: brightness(0) invert(0.82);
+    opacity: 0.85;
+    transition: filter 0.5s var(--ease), opacity 0.4s, transform 0.6s var(--ease);
+}
+
+.tile:hover .tile__logo img {
+    filter: none;
+    opacity: 1;
+    transform: rotate(-10deg) scale(1.1);
 }
 
 .tile:hover {

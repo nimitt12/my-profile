@@ -1,33 +1,153 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#060609">
+    <title>Page not found — Nimitt Ajmera</title>
+    <link rel="icon" href="/img/dev-favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&family=Manrope:wght@400;600&family=Syne:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #060609;
+            --text: #f3f3f6;
+            --muted: rgba(243, 243, 246, 0.6);
+            --grad: linear-gradient(100deg, #ff3a82 0%, #a23cff 45%, #5233ff 70%, #22d3ee 100%);
+            color-scheme: dark;
+        }
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px 16px; border-radius: 3px; }
-      #message h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            min-height: 100svh;
+            display: grid;
+            place-items: center;
+            padding: 24px 16px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Manrope', system-ui, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .glow {
+            position: fixed;
+            width: 80vmax;
+            height: 80vmax;
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(82, 51, 255, 0.35), rgba(255, 58, 130, 0.15) 40%, transparent 65%);
+            filter: blur(40px);
+            animation: breathe 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes breathe { to { transform: scale(1.2) rotate(30deg); } }
+
+        main { position: relative; }
+
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        h1 {
+            position: relative;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(7rem, 30vw, 22rem);
+            line-height: 0.9;
+            letter-spacing: -0.06em;
+            background: var(--grad);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shift 6s ease-in-out infinite alternate;
+        }
+
+        h1::before,
+        h1::after {
+            content: '404';
+            position: absolute;
+            inset: 0;
+            background: inherit;
+            -webkit-background-clip: text;
+            background-clip: text;
+            opacity: 0.6;
+            animation: glitch 3s steps(1) infinite;
+        }
+
+        h1::after { animation-delay: 0.15s; }
+
+        @keyframes shift { to { background-position: 100% 0; } }
+
+        @keyframes glitch {
+            0%, 86%, 100% { transform: none; clip-path: inset(0 0 0 0); opacity: 0; }
+            88% { transform: translate(-6px, 2px); clip-path: inset(20% 0 55% 0); opacity: 0.8; }
+            91% { transform: translate(5px, -3px); clip-path: inset(60% 0 10% 0); opacity: 0.8; }
+            94% { transform: translate(-3px, 0); clip-path: inset(40% 0 35% 0); opacity: 0.8; }
+        }
+
+        p {
+            margin: 12px auto 36px;
+            max-width: 36ch;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--muted);
+        }
+
+        p em {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.15em;
+            color: var(--text);
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            height: 56px;
+            padding: 0 30px;
+            border-radius: 999px;
+            background: var(--grad);
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 40px -10px rgba(255, 58, 130, 0.6);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s;
+        }
+
+        a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 60px -10px rgba(82, 51, 255, 0.75);
+        }
+
+        a:focus-visible { outline: 2px solid #22d3ee; outline-offset: 4px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>404</h2>
-      <h1>Page Not Found</h1>
-      <p>The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
-      <h3>Why am I seeing this?</h3>
-      <p>This page was generated by the Firebase Command-Line Interface. To modify it, edit the <code>404.html</code> file in your project's configured <code>public</code> directory.</p>
-    </div>
-  </body>
+</head>
+
+<body>
+    <div class="glow" aria-hidden="true"></div>
+    <main>
+        <p class="eyebrow">Error · Page not found</p>
+        <h1>404</h1>
+        <p>This page wandered off. Even <em>well-tested</em> code has a missing route now and then.</p>
+        <a href="/">← Back to home</a>
+    </main>
+</body>
+
 </html>
